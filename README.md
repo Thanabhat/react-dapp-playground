@@ -4,10 +4,11 @@ Tutorial from https://www.freecodecamp.org/news/full-stack-ethereum-development/
 
 ## Getting start
 
-- rename .env.sample to .env and set contract address
+- `npx hardhat node`
 - `npm i`
 - `npx hardhat compile`
 - `npx hardhat run scripts/deploy.js --network localhost`
+- rename .env.sample to .env and set contract address
 - `npm start`
 
 # Getting Started with Create React App
