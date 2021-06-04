@@ -1,4 +1,10 @@
-# Tutorial from https://www.freecodecamp.org/news/full-stack-ethereum-development/
+# React Dapp Playground
+
+Tutorial from https://www.freecodecamp.org/news/full-stack-ethereum-development/
+
+## Getting start
+
+rename .env.sample to .env and set contract address
 
 # Getting Started with Create React App
 

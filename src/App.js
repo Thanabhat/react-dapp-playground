@@ -4,7 +4,7 @@ import { ethers } from 'ethers'
 import Greeter from './artifacts/contracts/Greeter.sol/Greeter.json'
 
 // Update with the contract address logged out to the CLI when it was deployed 
-const greeterAddress = "your-contract-address"
+const greeterAddress = process.env.REACT_APP_CONTRACT_ADDRESS;
 
 function App() {
   // store greeting in local state
