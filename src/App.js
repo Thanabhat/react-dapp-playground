@@ -54,13 +54,29 @@ function App() {
     }
   }
 
+  function toWei(amtString) {
+    let a = amtString.split('.');
+    if (a.length === 1) {
+      a.push('0');
+    }
+    if (a[1].length > 18) {
+      a[1] = a[1].substring(0, 18);
+    } else if (a[1].length < 18) {
+      while (a[1].length < 18) {
+        a[1] = a[1] + '0';
+      }
+    }
+    const res = BigInt(a[0])*BigInt(10**18)+BigInt(a[1]);
+    return res.toString();
+  }
+
   async function sendCoins() {
     if (typeof window.ethereum !== 'undefined') {
       await requestAccount()
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
       const contract = new ethers.Contract(tokenAddress, Token.abi, signer);
-      const transation = await contract.transfer(userAccount, amount);
+      const transation = await contract.transfer(userAccount, toWei(amount));
       await transation.wait();
       console.log(`${amount} Coins successfully sent to ${userAccount}`);
     }
